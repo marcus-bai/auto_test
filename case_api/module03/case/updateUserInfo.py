@@ -2,13 +2,8 @@ import unittest
 import requests
 import json
 from test_config.test_url import sit_url
-'''
-测试接口指定数据文件
-实际是已经转换好json格式的txt文件
-每个txt文件代表一个case
-通过设置多个test函数和断言，执行不同的场景
-适用于入参字段比较多的情况
-'''
+
+
 class updateUserInfo(unittest.TestCase):
     #设置用例文件路径
     updateUserInfo_case1 = open(r'D:\PythonProject\auto_test\case_api\module03\data\updateUserInfo_case1','r',encoding='utf-8')

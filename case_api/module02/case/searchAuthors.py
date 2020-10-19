@@ -3,12 +3,8 @@ import requests
 import json
 import parameterized
 from test_config.test_url import sit_url
-'''
-测试接口类维护参数化文件的变量和方法
-测试函数使用参数化方法引用参数化文件和变量
-实现一个接口对用多个不同入参场景
-维护参数化文件即可，适用断言一致的情况
-'''
+
+
 class searchAuthors(unittest.TestCase):
     #构造参数化变量列表
     names = []

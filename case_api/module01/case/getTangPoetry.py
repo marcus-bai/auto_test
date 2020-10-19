@@ -2,13 +2,8 @@ import unittest
 import requests
 import json
 from test_config.test_url import sit_url
-'''
-针对接口测试函数，将接口请求的入参作为形参
-维护test_case时候将形参赋予值
-实现一个接口对用多个不同入参场景
-维护每个test_case的入参，断言即可
-适用于每个场景断言不一致的情况
-'''
+
+
 #创建getTangPoetry接口的测试类
 class getTangPoetry(unittest.TestCase):
     #构造接口请求函数（接口请求过程）
