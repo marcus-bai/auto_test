@@ -43,7 +43,7 @@ class userFeedback(unittest.TestCase):
         text = '测试文本内容'
         email = '123@123.com'
         #构造断言
-        self.assertIn('400',self.userFeedback(apikey,text,email))
+        self.assertIn('200',self.userFeedback(apikey,text,email))
 
 
 if __name__ == "__main__":

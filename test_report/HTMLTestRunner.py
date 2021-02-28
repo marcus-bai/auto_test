@@ -1,5 +1,5 @@
 #coding=utf-8
-#D:\Python36\Lib\HTMLTestRunner.py
+# *:\Python36\Lib
 """
 A连接信息 TestRunner for use with the Python unit testing framework. It
 generates a HTML report to show the result at a glance.
@@ -326,7 +326,7 @@ table       { font-size: 100%; }
     # 汉化,加美化效果 --Findyou
     REPORT_TMPL = """
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ %(passrate)s }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>通过率{ %(passrate)s }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ %(fail)s }</a>
 <a class="btn btn-success" href='javascript:showCase(2)'>通过{ %(Pass)s }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ %(count)s }</a>
@@ -580,9 +580,9 @@ class HTMLTestRunner(Template_mixin):
             status = 'none'
         return [
             ('测试人员', self.tester),
-            ('开始时间',startTime),
-            ('合计耗时',duration),
+            ('测试时间',startTime),
             ('测试结果',status + "，通过率= "+self.passrate),
+            ('合计耗时', duration),
         ]
 
 
