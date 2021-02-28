@@ -9,7 +9,7 @@ class searchAuthors(unittest.TestCase):
     #构造参数化变量列表
     names = []
     #利用文件内容参数化，维护参数化文件实现请求多次传参数
-    name_data = open(r'D:\PythonProject\auto_test\case_api\module02\data\searchAuthors', 'r', encoding='utf-8')
+    name_data = open(r'D:\PycharmProjects\auto_test\case_api\module02\data\searchAuthors', 'r', encoding='utf-8')
     #循环文件内容添加到参数化变量列表
     for x in name_data:
         #分割文件内容
@@ -51,4 +51,4 @@ class searchAuthors(unittest.TestCase):
         return test_response
 
 if __name__ == "__main__":
-    unittest.main(verbosity=0)
+    unittest.main(verbosity=2)

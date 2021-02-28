@@ -3,11 +3,10 @@ import requests
 import json
 from test_config.test_url import sit_url
 
-
 class updateUserInfo(unittest.TestCase):
     #设置用例文件路径
-    updateUserInfo_case1 = open(r'D:\PythonProject\auto_test\case_api\module03\data\updateUserInfo_case1','r',encoding='utf-8')
-    updateUserInfo_case2 = open(r'D:\PythonProject\auto_test\case_api\module03\data\updateUserInfo_case2','r',encoding='utf-8')
+    updateUserInfo_case1 = open(r'D:\PycharmProjects\auto_test\case_api\module03\data\updateUserInfo_case1','r',encoding='utf-8')
+    updateUserInfo_case2 = open(r'D:\PycharmProjects\auto_test\case_api\module03\data\updateUserInfo_case2','r',encoding='utf-8')
 
     # 构造接口请求函数（接口请求过程）
     def updateUserInfo(self,case) -> None:
