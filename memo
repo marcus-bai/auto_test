@@ -1,0 +1,59 @@
+HTMLTestRunner.py是备份文件
+
+pip install pytest-ordering 控制用例的执行顺序
+pytest的默认执行顺序是自上向下执行（注意pytest多个装饰器的时候可能会发生冲突），
+如果要调整顺序，我们可以使用@pytest.mark.run(order=1)，如果不小心标记成了相同的顺序，测试用例就按照自上而下执行了
+
+
+使用scope来控制setup和teardown的作用域和范围
+@pytest.fixture(scope = "class")表示.py文件里整个类执行一次
+scope = "session"表示在整个目录中只执行一次
+scope = "moudle"表示每一个模块也就是每个.py文件执行一次
+
+pip intall pytest-html 测试报告
+使用命令pytest -v -s --html=report.html --self-contained-html
+
+pip install pytest-rerunfailures 失败重跑
+使用命令pytest test_a.py --reruns 5 --reruns-delay 1 -vs
+可以看出失败的用例执行了5次
+
+pip install pytest-xdist 分布式并发执行测试用例
+测试用例一共有100条，一个执行1分钟，就需要100分钟，如果并行测试10个人一起执行时间就会缩短，这就是一种并行测试，分布式场景；
+此方法的应用存在一定的原则，第一，就是用例之间是相互独立的，用例之间没有相互依赖关系，用例可以完全独立运行；第二，用例执行没有顺序，随机顺序都能正常执行；第三，每个测试用例都能重复运行，运行结果不会影响其他测试用例
+此应用方式测试用例较多的时候测试效果明显，在执行过程中使用pytest -n 3命令进行执行
+示例中的执行效果不明显
+
+pip install pytest-assume 多重校验
+一个方法中写了多条断言，通常第一条过不去，下面的就不执行了，我们希望第一条报错之后，后面的也能够正常运行
+使用pytest.assume()
+def test_case01(self):
+        print(f"测试用例1")
+        pytest.assume(1 > 2)
+        pytest.assume(1 < 1)
+
+
+pip uninstall pytest-allure-adaptor
+pip install allure-pytest
+
+
+第一步，生成测试报告数据
+
+在py.test执行测试的时候，指定–alluredir选项及结果数据保存的目录：
+
+$ py.test test/ --alluredir ./result/
+
+
+./result/中保存了本次测试的结果数据。另外，还可以执行指定features或者stories执行一部分测试用例，比如执行”购物车功能“下的”加入购物车“子功能的测试用例：
+
+$ py.test test/ --allure_features='购物车功能' --allure_stories='加入购物车'
+
+
+第二步，生成测试报告页面
+
+通过下面的命令将./result/目录下的测试数据生成测试报告页面：
+
+$ allure generate ./result/ -o ./report/ --clean
+
+–clean选项目的是先清空测试报告目录，再生成新的测试报告。
+
+这一步需要提前安装allure命令行，如果是Mac电脑，推荐使用Homebrew安装。

@@ -2,7 +2,7 @@ import unittest
 import requests
 import json
 from test_config.test_url import sit_url
-
+import pytest
 
 #创建getTangPoetry接口的测试类
 class getTangPoetry(unittest.TestCase):
@@ -49,4 +49,5 @@ class getTangPoetry(unittest.TestCase):
         self.assertIn('200',self.getTangPoetry(page,count))
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    pytest.main(['-s'])
+    # unittest.main(verbosity=2)
